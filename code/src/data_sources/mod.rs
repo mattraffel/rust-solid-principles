@@ -29,6 +29,10 @@ impl Datasource for InMemoryDatasource {
 
         let mut numbers: Vec<i32> = vec![];
 
+        numbers.insert(1, 1);
+        numbers.insert(1, 5);
+        numbers.insert(1, 10);
+
         return numbers;
     }
 }
