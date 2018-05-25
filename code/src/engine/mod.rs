@@ -1,5 +1,6 @@
 //!
 
+pub mod logger;
 
 pub struct Engine {
 
