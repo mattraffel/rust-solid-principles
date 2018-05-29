@@ -1,8 +1,8 @@
 //!
 #![allow(unused_imports)]
 #![allow(dead_code)]
-use super::InMemory_Data_Source::InMemoryDatasource;
-use super::MySql::MySqlDatasource;
+use super::in_memory_data_source::InMemoryDatasource;
+use super::mysql::MySqlDatasource;
 
 /**
     A trait defines a contract.
