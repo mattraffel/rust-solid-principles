@@ -7,7 +7,9 @@ use super::InMemory_Data_Source::InMemoryDatasource;
 use super::MySql::MySqlDatasource;
 
 /**
-    This implements a factory pattern.  The factory knows how to get a implementation
+    This implements a factory pattern for the trait DataSource.
+    The factory knows how to get a implementation.  The factory uses inputted key values to determine
+    which datasource to allocate
 */
 pub struct DataSourceFactory {
 
