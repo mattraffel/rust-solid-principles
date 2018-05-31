@@ -1,5 +1,6 @@
 //!
-use preferences::{AppInfo, PreferencesMap, Preferences};
+#![allow(non_snake_case)]
+use preferences::{AppInfo, PreferencesMap, Preferences, prefs_base_dir};
 
 pub struct Configuration {
     pub data_source : String,
@@ -18,8 +19,8 @@ impl Configuration {
 
     pub fn from_file() -> Self {
 
-        let APPINFO = AppInfo{name: "preferences", author: ""};
-        let config_location = "config";
+        let APPINFO = AppInfo{name: "rust_solid", author: "matt"};
+        let config_location = "v1";
         let load_result = PreferencesMap::<String>::load(&APPINFO, config_location);
 
         if load_result.is_err() {
@@ -37,6 +38,23 @@ impl Configuration {
             computation,
             pay_this_amount
         };
+    }
+
+    // #[cfg(Debug)]
+    pub fn save_config_file() {
+        let APPINFO = AppInfo{name: "~/rust_solid", author: "matt"};
+        let config_location = "v1";
+
+        let mut data: PreferencesMap<String> = PreferencesMap::new();
+        data.insert("data_source".to_string(), "memory".to_string());
+        data.insert("computation".to_string(), "max".to_string());
+        data.insert("pay_this_amount".to_string(), "13".to_string());
+
+        let save_result = data.save(&APPINFO, config_location);
+        println!("result of save is: {:?}", save_result);
+        assert!(save_result.is_ok());
+
+        println!("config saved to {:?}", prefs_base_dir().unwrap());
     }
 }
 
