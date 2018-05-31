@@ -1,5 +1,5 @@
 //!
-
+use preferences::{AppInfo, PreferencesMap, Preferences};
 
 pub struct Configuration {
     pub data_source : String,
@@ -17,6 +17,46 @@ impl Configuration {
     }
 
     pub fn from_file() -> Self {
-        unimplemented!()
+
+        let APPINFO = AppInfo{name: "preferences", author: ""};
+        let config_location = "config";
+        let load_result = PreferencesMap::<String>::load(&APPINFO, config_location);
+
+        if load_result.is_err() {
+            println!("loading default configuration");
+            return Configuration::new();
+        }
+
+        let config_data = load_result.unwrap();
+        let data_source = config_data.get("data_source").unwrap().to_string();
+        let computation = config_data.get("computation").unwrap().to_string();
+        let pay_this_amount = config_data.get("pay_this_amount").unwrap().parse::<i32>().unwrap();;
+
+        return Configuration {
+            data_source,
+            computation,
+            pay_this_amount
+        };
+    }
+}
+
+#[cfg(test)]
+mod configuration_tests{
+
+    use preferences::{AppInfo, PreferencesMap, Preferences};
+
+    #[test]
+    fn save_config_file() {
+        let APPINFO = AppInfo{name: "preferences", author: "raffel"};
+        let config_location = "config";
+
+        let mut data: PreferencesMap<String> = PreferencesMap::new();
+        data.insert("data_source".to_string(), "memory".to_string());
+        data.insert("computation".to_string(), "max".to_string());
+        data.insert("pay_this_amount".to_string(), "13".to_string());
+
+        let save_result = data.save(&APPINFO, config_location);
+        println!("result of save is: {:?}", save_result);
+        assert!(save_result.is_ok());
     }
 }

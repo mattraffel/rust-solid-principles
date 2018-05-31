@@ -32,7 +32,7 @@ impl Engine {
     pub fn run(&self) {
         println!("the engine is running");
 
-        let config: Configuration = Configuration::new();
+        let config: Configuration = Configuration::from_file();
         let db = DataSourceFactory::get(&config.data_source);
         let data = db.get_list();
 
