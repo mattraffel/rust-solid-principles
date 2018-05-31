@@ -24,3 +24,24 @@ impl DataSourceFactory {
         }
     }
 }
+
+
+#[cfg(test)]
+mod factory_tests {
+
+    use std::panic;
+    use super::DataSourceFactory;
+
+    #[test]
+    fn errors_with_invalid_data_source() {
+
+        let error = panic::catch_unwind(|| {
+            DataSourceFactory::get("bob");
+        });
+
+        // test fails if no panic was caught
+        if error.is_ok() {
+            assert!(false);
+        }
+    }
+}

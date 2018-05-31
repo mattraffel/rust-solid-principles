@@ -23,11 +23,8 @@ mod engine;
 use engine::{Engine, logger};
 
 fn main() {
-
-
     logger::init_log();
 
     let e: Engine = Engine { };
     e.run();
-
 }
