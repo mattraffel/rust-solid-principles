@@ -30,3 +30,24 @@ impl ComputationsFactory {
         }
     }
 }
+
+
+#[cfg(test)]
+mod factory_tests {
+
+    use std::panic;
+    use super::ComputationsFactory;
+
+    #[test]
+    fn errors_with_invalid_engine_id() {
+
+        let error = panic::catch_unwind(|| {
+            ComputationsFactory::get("bob");
+        });
+
+        // test fails if no panic was caught
+        if error.is_ok() {
+            assert!(false);
+        }
+    }
+}
