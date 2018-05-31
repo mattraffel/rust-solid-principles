@@ -18,8 +18,10 @@ impl Datasource for InMemoryDatasource {
         let mut numbers: Vec<i32> = vec![];
 
         numbers.push(1);
+        numbers.push(2);
         numbers.push(5);
         numbers.push(10);
+        numbers.push(11);
 
         return numbers;
     }
