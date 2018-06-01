@@ -2,6 +2,10 @@
 
 use super::computations::Computations;
 
+/**
+    This computation adds up amounts starting with the largest available amount
+    until the sum exceeds the requested value.
+*/
 pub struct MaximumValueComputation {
 
 }

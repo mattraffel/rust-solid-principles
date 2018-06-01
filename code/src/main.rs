@@ -27,8 +27,11 @@ use engine::{Engine, logger};
 fn main() {
     logger::init_log();
 
-    Configuration::save_config_file();
+    // Configuration::save_config_file();
 
     let e: Engine = Engine { };
-    e.run();
+
+    let config: Configuration = Configuration::from_file();
+
+    e.run(config.data_source, config.computation, config.pay_this_amount);
 }

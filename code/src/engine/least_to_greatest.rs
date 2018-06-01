@@ -2,6 +2,10 @@
 
 use super::computations::Computations;
 
+/**
+    This computation adds up amounts from smallest amount first
+    until it gets enough amounts to exceed the requested amount
+*/
 pub struct LeastToGreatestComputation {
 
 }
