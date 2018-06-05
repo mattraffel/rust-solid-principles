@@ -2,9 +2,9 @@
 #![allow(unused_imports)]
 #![allow(dead_code)]
 
-use super::data_source::*;
-use super::in_memory_data_source::InMemoryDatasource;
-use super::mysql::MySqlDatasource;
+use data_sources::data_source::{DataSourceTypes};
+use data_sources::in_memory_data_source::InMemoryDatasource;
+use data_sources::mysql::MySqlDatasource;
 
 /**
     This implements a factory pattern for the trait DataSource.

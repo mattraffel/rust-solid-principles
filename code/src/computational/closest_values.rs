@@ -1,6 +1,6 @@
 //!
 
-use super::computations::Computations;
+use computational::computations::Computations;
 
 /**
     Looks for the value closest to the requested value, puts that in the result list

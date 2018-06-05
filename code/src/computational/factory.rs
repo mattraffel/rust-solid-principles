@@ -2,10 +2,10 @@
 #![allow(unused_imports)]
 #![allow(dead_code)]
 
-use super::computations::{Computations, ComputationTypes};
-use super::closest_values::ClosestValuesComputation;
-use super::least_to_greatest::LeastToGreatestComputation;
-use super::maximum_value::MaximumValueComputation;
+use computational::computations::{Computations, ComputationTypes};
+use computational::closest_values::ClosestValuesComputation;
+use computational::least_to_greatest::LeastToGreatestComputation;
+use computational::maximum_value::MaximumValueComputation;
 
 
 /**

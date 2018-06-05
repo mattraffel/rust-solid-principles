@@ -1,6 +1,6 @@
 //!
 
-use super::computations::Computations;
+use computational::computations::Computations;
 
 /**
     This computation adds up amounts starting with the largest available amount

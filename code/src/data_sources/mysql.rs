@@ -3,7 +3,7 @@
 #![allow(unused_imports)]
 #![allow(dead_code)]
 
-use super::data_source::Datasource;
+use data_sources::data_source::Datasource;
 
 /**
     MySqlData source
