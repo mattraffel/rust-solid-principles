@@ -1,5 +1,4 @@
 //! Logger module contains helper functions for using error!, debug!, trace! etc logging
-//! functions and macros in libsovtoken
 use std::env;
 use std::sync::{Once, ONCE_INIT};
 use std::io::Write;
