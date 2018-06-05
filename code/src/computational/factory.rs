@@ -27,7 +27,7 @@ impl ComputationsFactory {
             "closest" => ComputationTypes::ClosestValues(ClosestValuesComputation {} ),
             "max" => ComputationTypes::MaximumValue(MaximumValueComputation {} ),
             &_ => {
-                eprintln!("Error processing get for {}", name);
+                eprintln!("Error in ComputationsFactory processing get for name of '{}'", name);
                 panic!("Error in ComputationsFactory processing get request")
             },
         }

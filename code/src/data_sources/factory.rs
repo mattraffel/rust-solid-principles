@@ -24,8 +24,8 @@ impl DataSourceFactory {
             "memory" => DataSourceTypes::InMemory(InMemoryDatasource {} ),
             "mysql" => DataSourceTypes::MySql( MySqlDatasource {} ),
             &_ =>{
-                eprintln!("Error processing get for {}", name);
-                panic!("Error in ComputationsFactory processing get request")}
+                eprintln!("Error in DataSourceFactory processing get for name of '{}'", name);
+                panic!("Error in DataSourceFactory processing get request")}
             ,
         }
     }
