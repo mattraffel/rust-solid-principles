@@ -24,7 +24,7 @@ impl Computations for ClosestValuesComputation {
         let mut results:Vec<i32> = vec![];
         let mut inputted = inputs;
         inputted.sort();
-        println!("sorted utxo {:?}", inputted);
+        debug!("sorted utxo {:?}", inputted);
 
         let mut sum : i32 = 0;
         let mut lower_bounds = middle;

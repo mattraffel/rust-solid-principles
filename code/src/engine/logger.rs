@@ -37,7 +37,7 @@ impl Log for ConsoleLogger {
 }
 
 /**
-    Required call to get logging in libsovtoken to appear, depending on call (debug! vs error! etc)
+    Required call to get logging to appear, depending on call (debug! vs error! etc)
     and RUST_LOG env setting.
 */
 pub fn init_log() {
