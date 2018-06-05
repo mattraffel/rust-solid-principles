@@ -27,19 +27,19 @@ pub struct Engine {
 }
 
 impl Engine {
-    pub fn run(&self, data_source: String, computation : String, pay_amount : i32) {
+    pub fn run(&self, config: Configuration) {
         println!("the engine is running");
 
-        let db = DataSourceFactory::get(&data_source);
+        let db = DataSourceFactory::get(&config.get_data_source_name());
         let data = db.get_list();
 
         println!("the following \"UTXO\" are available {:?}", data);
 
-        let compute = ComputationsFactory::get(&computation);
+        let compute = ComputationsFactory::get(&config.get_computation_name());
 
         println!("using \"{}\" computations to get results", compute.get_name());
 
-        let results = compute.get_result(pay_amount, data);
+        let results = compute.get_result(config.get_payment_amount(), data);
 
         println!("The \"UTXOs\" to be used to pay fee of {} is {:?}", pay_amount, results);
     }

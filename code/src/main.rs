@@ -35,7 +35,7 @@ fn main() {
     let config: Configuration = Configuration::from_file();
 
     // here is a form of dependency injection.  Engine requires certain data and code
-    // to run.  The engine doesn't build it, it gets it.  Changing the inputs changes
+    // to run.  The engine doesn't allocate it, it gets it.  Changing the inputs changes
     // the system without breaking it.  Aka the L of SOLID
-    e.run(config.data_source, config.computation, config.pay_this_amount);
+    e.run(config);
 }

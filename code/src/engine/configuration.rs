@@ -3,9 +3,9 @@
 use preferences::{AppInfo, PreferencesMap, Preferences, prefs_base_dir};
 
 pub struct Configuration {
-    pub data_source : String,
-    pub computation : String,
-    pub pay_this_amount : i32
+    data_source : String,
+    computation : String,
+    pay_this_amount : i32
 }
 
 impl Configuration {
@@ -55,6 +55,18 @@ impl Configuration {
         assert!(save_result.is_ok());
 
         println!("config saved to {:?}", prefs_base_dir().unwrap());
+    }
+
+    pub fn get_data_source_name(&self) -> String {
+        return self.data_source;
+    }
+
+    pub fn get_computation_name(&self) -> String {
+        return self.computation;
+    }
+
+    pub fn get_payment_amount(&self) -> i32 {
+        return self.pay_this_amount;
     }
 }
 
