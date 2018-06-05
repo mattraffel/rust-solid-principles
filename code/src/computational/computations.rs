@@ -2,9 +2,9 @@
 #![allow(dead_code)]
 #![allow(non_snake_case)]
 
-use super::closest_values::ClosestValuesComputation;
-use super::least_to_greatest::LeastToGreatestComputation;
-use super::maximum_value::MaximumValueComputation;
+use computational::closest_values::ClosestValuesComputation;
+use computational::least_to_greatest::LeastToGreatestComputation;
+use computational::maximum_value::MaximumValueComputation;
 
 pub trait Computations {
     fn get_name(&self) -> String;

@@ -10,6 +10,9 @@ use super::mysql::MySqlDatasource;
     This implements a factory pattern for the trait DataSource.
     The factory knows how to get a implementation.  The factory uses inputted key values to determine
     which datasource to allocate
+
+    This factory solves for the I in SOLID.  Inversion of control.  Any code that needs a data source
+    requests it from the factory and factory supplies the correct instance.
 */
 pub struct DataSourceFactory {
 
@@ -20,7 +23,10 @@ impl DataSourceFactory {
         match name.as_ref() {
             "memory" => DataSourceTypes::InMemory(InMemoryDatasource {} ),
             "mysql" => DataSourceTypes::MySql( MySqlDatasource {} ),
-            &_ => unimplemented!(),
+            &_ =>{
+                eprintln!("Error processing get for {}", name);
+                panic!("Error in ComputationsFactory processing get request")}
+            ,
         }
     }
 }

@@ -2,6 +2,7 @@
 name = "rust-solid"
 version = "0.1.0"
 authors = ["matt raffel <matt.raffel@evernym.com>"]
+description = "A project that represents a functional implemention of SOLID programming practices in RUST. This project is the end result of the class on SOLID rust"
 
 [dependencies]
 ansi_term = "0.11.0"
