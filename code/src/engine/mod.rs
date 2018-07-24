@@ -18,9 +18,9 @@ use engine::configuration::Configuration;
    The purpose of this engine is to acquire a range of values (that represent UTXOs) and then apply
    a computation to select a subset of the values whose sum will exceed the value requested.
 
-   This description is intentionally a bit vague so that different data sources and
-   different data computations can be applied via SOLID principles without breaking
-   any thing
+   The run(...) method shows two examples of inversion of control, aka the I in SOLID
+   The engine needs a data source.  The engine doesn't allocate the data source, it asks
+   for the data source to use.  Same for computations.
 
 */
 pub struct Engine {
